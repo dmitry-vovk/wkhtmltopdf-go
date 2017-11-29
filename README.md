@@ -1,3 +1,1 @@
-Depends on wkhtmltopdf library
-http://wkhtmltopdf.org/downloads.html
-
+Extension of wkhtmltox binding.
