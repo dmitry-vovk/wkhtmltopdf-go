@@ -33,8 +33,8 @@ func main() {
 		fmt.Printf("Finished: %d\n", s)
 	}
 	c.Phase = func(c *wkhtmltoimage.Converter) {
-		cp := c.CurrentPhase()
-		fmt.Printf("Phase %d: %s\n", cp, c.PhaseDescription(cp))
+		phaseNumber, phaseDescription := c.CurrentPhase()
+		fmt.Printf("Phase %d: %s\n", phaseNumber, phaseDescription)
 	}
 	if err := c.Convert(); err != nil {
 		fmt.Printf("Error converting: %s\n", err)

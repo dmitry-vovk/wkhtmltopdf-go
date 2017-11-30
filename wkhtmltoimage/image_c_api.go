@@ -138,10 +138,7 @@ func (c *Converter) Payload() ([]byte, int) {
 	return payload, size
 }
 
-func (c *Converter) PhaseDescription(i int) string {
-	return C.GoString(C.wkhtmltoimage_phase_description(c.c, C.int(i)))
-}
-
-func (c *Converter) CurrentPhase() int {
-	return int(C.wkhtmltoimage_current_phase(c.c))
+func (c *Converter) CurrentPhase() (int, string) {
+	phaseNumber := C.wkhtmltoimage_current_phase(c.c)
+	return int(phaseNumber), C.GoString(C.wkhtmltoimage_phase_description(c.c, phaseNumber))
 }
